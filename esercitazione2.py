@@ -3,6 +3,7 @@ import argparse
 import logging
 import time
 import string
+import matplotlib.pyplot as plt
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -34,6 +35,9 @@ def process(file_path):
         print(f"{ch}->{num/num_letters:.3f}")
     print(char_dict)
 
+    plt.bar(list(char_dict.keys()), char_dict.values(), color='g')
+    plt.grid()
+    plt.show()
 
 
 
@@ -54,4 +58,4 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     file_path = args.infile
-    process(args.infile)
+    process('pg1497.txt')
